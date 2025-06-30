@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martin Peter Nandasava | Professional IT Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b, #2d3748);
+            color: #e2e8f0;
+            line-height: 1.7;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(74, 222, 128, 0.08) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 30%);
+            z-index: -1;
+        }
+        
+        .cyber-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #38bdf8, #4ade80, #8b5cf6);
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #38bdf8;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(56, 189, 248, 0.4);
+            background: linear-gradient(45deg, #1e40af, #1e3a8a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+        }
+        
+        .profile-img::after {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #38bdf8, #4ade80, #8b5cf6, #38bdf8);
+            background-size: 400% 400%;
+            z-index: -1;
+            animation: gradientRotate 8s ease infinite;
+        }
+        
+        .profile-info h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #38bdf8, #4ade80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .profile-info h2 {
+            font-size: 1.5rem;
+            color: #4ade80;
+            margin-bottom: 15px;
+        }
+        
+        .profile-info p {
+            max-width: 700px;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+        }
+        
+        .services-intro {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .services-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #38bdf8;
+        }
+        
+        .services-intro p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .service-card {
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2);
+            border-color: rgba(74, 222, 128, 0.4);
+        }
+        
+        .service-card i {
+            font-size: 3.5rem;
+            color: #38bdf8;
+            margin-bottom: 20px;
+            background: rgba(56, 189, 248, 0.1);
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.8rem;
+            color: #4ade80;
+            margin-bottom: 20px;
+        }
+        
+        .service-card ul {
+            text-align: left;
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .service-card ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .service-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #4ade80;
+            font-weight: bold;
+        }
+        
+        .contact-section {
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 50px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #38bdf8;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-method {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            min-width: 300px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+        }
+        
+        .contact-method i {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+        
+        .contact-method h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #4ade80;
+        }
+        
+        .contact-method p {
+            font-size: 1.2rem;
+        }
+        
+        .contact-method a {
+            color: #38bdf8;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            margin-top: 10px;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+        
+        .contact-method a:hover {
+            color: #4ade80;
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 20px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: #38bdf8;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #4ade80;
+            transform: translateY(-5px) scale(1.1);
+        }
+        
+        @keyframes gradientRotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-method {
+                width: 100%;
+            }
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #38bdf8, #4ade80);
+            color: #0f172a;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+            font-size: 1.2rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+        }
+        
+        .testimonial {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #4ade80;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial .author {
+            font-weight: bold;
+            color: #38bdf8;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    <div class="container">
+        <header>
+            <div class="profile-container">
+                <div class="profile-img">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="profile-info">
+                    <h1>Martin Peter Nandasava</h1>
+                    <h2>Full Stack Developer & Security Specialist</h2>
+                    <p>Professional IT solutions for businesses and individuals worldwide</p>
+                </div>
+            </div>
+        </header>
+        
+        <div class="services-intro">
+            <h2>Professional IT Services</h2>
+            <p>I provide comprehensive IT solutions including custom development, security services, and ongoing maintenance. With expertise across multiple domains, I deliver reliable and efficient solutions tailored to your needs.</p>
+            <a href="#contact" class="btn">Contact Me Now</a>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-globe"></i>
+                <h3>Website Development</h3>
+                <ul>
+                    <li>Custom website design and development</li>
+                    <li>E-commerce solutions</li>
+                    <li>Responsive mobile-friendly design</li>
+                    <li>Content Management Systems (WordPress, Joomla)</li>
+                    <li>SEO optimization</li>
+                    <li>Website maintenance and updates</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile App Development</h3>
+                <ul>
+                    <li>iOS and Android application development</li>
+                    <li>Cross-platform solutions (React Native, Flutter)</li>
+                    <li>UI/UX design</li>
+                    <li>API integration</li>
+                    <li>App publishing and deployment</li>
+                    <li>Maintenance and updates</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Security Services</h3>
+                <ul>
+                    <li>Penetration testing</li>
+                    <li>Vulnerability scanning</li>
+                    <li>Security audits</li>
+                    <li>Network security hardening</li>
+                    <li>Security monitoring</li>
+                    <li>Incident response</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-server"></i>
+                <h3>Server Maintenance</h3>
+                <ul>
+                    <li>Server setup and configuration</li>
+                    <li>Performance optimization</li>
+                    <li>Security hardening</li>
+                    <li>Backup solutions</li>
+                    <li>24/7 monitoring</li>
+                    <li>Troubleshooting and support</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>Full Stack Development</h3>
+                <ul>
+                    <li>Frontend development (React, Angular, Vue)</li>
+                    <li>Backend development (Node.js, Python, PHP)</li>
+                    <li>Database design and management</li>
+                    <li>API development and integration</li>
+                    <li>Third-party service integration</li>
+                    <li>System architecture design</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <i class="fas fa-user-secret"></i>
+                <h3>Specialized Services</h3>
+                <ul>
+                    <li>Onion site development (Tor network)</li>
+                    <li>Secure communication systems</li>
+                    <li>Blockchain integration</li>
+                    <li>Cryptocurrency payment systems</li>
+                    <li>Custom encryption solutions</li>
+                    <li>Anonymous hosting solutions</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="testimonial">
+            <p>"Martin completely transformed our online presence with a custom website that perfectly captures our brand identity. His attention to detail and technical expertise exceeded our expectations."</p>
+            <p class="author">- Sarah Johnson, Marketing Director</p>
+        </div>
+        
+        <div class="testimonial">
+            <p>"The security audit Martin performed on our systems identified critical vulnerabilities we were unaware of. His thorough report and remediation guidance significantly improved our security posture."</p>
+            <p class="author">- Michael Thompson, CTO</p>
+        </div>
+        
+        <div class="contact-section" id="contact">
+            <h2>Contact Me</h2>
+            <p>Reach out for a consultation or project discussion. I'm available via phone, WhatsApp, or email.</p>
+            
+            <div class="contact-info">
+                <div class="contact-method">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <a href="https://wa.me/254740830343">+254 740 830343</a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <a href="tel:+254740830343">+254 740 830343</a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:martinnandasava@gmail.com">martinnandasava@gmail.com</a>
+                </div>
+            </div>
+            
+            <p>Response time: Typically within 24 hours</p>
+            <p>Working hours: Monday-Saturday, 9:00 AM - 6:00 PM (GMT+3)</p>
+        </div>
+        
+        <footer>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <p>&copy; 2023 Martin Peter Nandasava | Professional IT Services</p>
+            <p style="margin-top: 15px;">Providing comprehensive IT solutions for clients worldwide</p>
+            
+            <div style="margin-top: 25px;">
+                <p>WhatsApp: <a href="https://wa.me/254740830343">+254 740 830343</a></p>
+                <p>Phone: <a href="tel:+254740830343">+254 740 830343</a></p>
+                <p>Email: <a href="mailto:martinnandasava@gmail.com">martinnandasava@gmail.com</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Simple animations for service cards
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        serviceCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+                card.style.boxShadow = '0 15px 30px rgba(56, 189, 248, 0.3)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.4)';
+            });
+        });
+        
+        // Animate elements on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.service-card, .testimonial, .contact-method');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                if (position.top < window.innerHeight * 0.75) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state
+        document.querySelectorAll('.service-card, .testimonial, .contact-method').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s, transform 0.5s';
+        });
+        
+        // Listen for scroll events
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Initial check
+        animateOnScroll();
+    </script>
+</body>
+</html>
